@@ -22,9 +22,19 @@ repositories {
 }
 
 dependencies {
+
+	//Spring date JPA
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	//Thymeleaf view
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	//Spring MVC
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	//validation
+	implementation group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'

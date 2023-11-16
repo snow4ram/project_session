@@ -10,7 +10,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.Objects;
-import java.util.UUID;
 
 @Getter
 @Entity
@@ -47,5 +46,11 @@ public class User {
         return Objects.hash(id, userid, password);
     }
 
-
+    @Override
+    public String toString() {
+        return "User " +
+                " userid = " + userid +
+                " password = " + password +
+                " uniqueID = " + uniqueID;
+    }
 }

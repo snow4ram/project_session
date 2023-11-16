@@ -5,7 +5,8 @@ spring:
     password: 120512zxc@
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
-    hibernate:
-      ddl-auto: create
-      show_sql: true
-      format_sql: true
+    properties:
+      hibernate:
+        ddl-auto: create
+        show_sql: true
+        format_sql: true
