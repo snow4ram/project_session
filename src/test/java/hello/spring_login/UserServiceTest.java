@@ -34,7 +34,7 @@ public class UserServiceTest {
     @DisplayName("사용자 회원 가입")
     public void signUp() {
         //give
-        LoginRequest signUp = new LoginRequest("", "password 3");
+        LoginRequest signUp = new LoginRequest("userId", "password 3");
 
         MockHttpSession httpSession = new MockHttpSession();
 
@@ -55,15 +55,7 @@ public class UserServiceTest {
     }
 
 
-    @Test
-    @DisplayName("공백 문자 허용하지 않음")
-    void id() {
-    }
 
-    @Test
-    @DisplayName("")
-    void password() {
-    }
 
     @AfterEach
     public void userInformationDeleteAll() {
