@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -22,6 +23,12 @@ public class LoginController {
 
     @Autowired
     private final LoginService loginService;
+
+    @GetMapping("/sign-up")
+    public String home() {
+        return "home";
+    }
+
 
     @PostMapping("/sign-up")
     public ResponseEntity<LoginResponse> signUpForm(@RequestBody final SignUpRequest signUpRequest ,final HttpSession session) {
