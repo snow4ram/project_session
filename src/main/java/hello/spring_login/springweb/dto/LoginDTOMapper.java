@@ -11,10 +11,8 @@ import static hello.spring_login.springweb.entity.ExceptionInformation.*;
 @Service
 public class LoginDTOMapper implements Function<User , LoginDTO> {
 
-    private static final String MESSAGE = "사용자 정보가 없습니다.";
-
     @Override
-    public LoginDTO apply(User user) {
+    public LoginDTO apply(final User user) {
         if (user == null) {
             throw new RuntimeException(ERROR_MESSAGE.getExceptionMessage());
         }

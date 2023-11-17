@@ -24,14 +24,24 @@ public class LoginController {
     @Autowired
     private final LoginService loginService;
 
-    @GetMapping("/sign-up")
+    @GetMapping("/login")
     public String home() {
         return "home";
     }
 
+    @GetMapping("/main-page")
+    public String mainPage() {
+        return "main_page";
+    }
+
+    @GetMapping("/sign-up")
+    public String signUpPage() {
+        return "sign_up";
+    }
+
 
     @PostMapping("/sign-up")
-    public ResponseEntity<LoginResponse> signUpForm(@RequestBody final SignUpRequest signUpRequest ,final HttpSession session) {
+    public ResponseEntity<LoginResponse> signUpForm( @RequestBody SignUpRequest signUpRequest , final HttpSession session) {
 
         LoginDTO loginDTO = loginService.signUp(signUpRequest, session);
 
@@ -43,14 +53,23 @@ public class LoginController {
 
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> loginForm(@RequestBody final LoginRequest loginRequest ,final HttpSession session) {
+    public ResponseEntity<LoginResponse> loginForm(@RequestBody LoginRequest loginRequest ,final HttpSession session) {
 
         LoginDTO loginDTO = loginService.login(loginRequest, session);
 
         LoginResponse loginResponse = new LoginResponse(loginDTO);
 
-        //200
         return ResponseEntity.ok().body(loginResponse);
+    }
+
+
+
+    @PostMapping("/logout")
+    public ResponseEntity<Void> logout(final HttpSession session) {
+
+        loginService.logout(session);
+
+        return ResponseEntity.ok().build();
     }
 
 }

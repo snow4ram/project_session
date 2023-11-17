@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/Js/login.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+            integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+</head>
+<body>
+<div id="form_logout">
+    <form>
+
+    </form>
+</div>
+
+<button  onclick="logoutApi()">로그아웃</button>
+<script th:inline="javascript"  type="text/javascript">
+    function logoutApi(){
+        axios.post("/logout")
+            .then(function(response) {
+                location.href ="/login";
+            }).catch(function(e){
+            console.log(e)
+        })
+    }
+</script>
+</body>
+</html>

@@ -38,7 +38,6 @@ public class UserServiceTest {
 
         MockHttpSession httpSession = new MockHttpSession();
 
-        loginService.signUp(signUp , httpSession);
 
         //when
         User findUser = jpaUserRepository.findById(1L).orElseThrow();
